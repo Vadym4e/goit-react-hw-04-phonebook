@@ -1,8 +1,9 @@
 import React from 'react';
+import { AddBtn, Form, InputForm, Label } from './ContactForm.styled';
 
 const ContactForm = ({ addContact }) => {
   return (
-    <form
+    <Form
       onSubmit={evt => {
         evt.preventDefault();
 
@@ -13,28 +14,28 @@ const ContactForm = ({ addContact }) => {
         evt.target.reset();
       }}
     >
-      <label>
+      <Label>
         Name
-        <input
+        <InputForm
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Number{' '}
-        <input
+        <InputForm
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
-      <button type="submit">Add contact</button>
-    </form>
+      </Label>
+      <AddBtn type="submit">Add contact</AddBtn>
+    </Form>
   );
 };
 

@@ -1,28 +1,37 @@
 import React from 'react';
+import {
+  List,
+  ListBtn,
+  ListInput,
+  ListItem,
+  ListLable,
+} from './ContactList.styled';
 
 const ContactList = ({ list, onChangeInput, filter, onDeleteContact }) => {
   return (
     <div>
-      <label>
+      <ListLable>
         Find contacts by name{' '}
-        <input
+        <ListInput
           type="text"
           name="filter"
           value={filter}
           onChange={onChangeInput}
         />
-      </label>
-      <ul>
+      </ListLable>
+      <List>
         {list.map(item => {
           return (
-            <li key={item.id}>
-              <span>{item.name}:</span>
-              <span>{item.number}</span>
-              <button onClick={() => onDeleteContact(item.id)}>Delete</button>
-            </li>
+            <ListItem key={item.id}>
+              <div>
+                <span>{item.name}:</span>
+                <span>{item.number}</span>
+              </div>
+              <ListBtn onClick={() => onDeleteContact(item.id)}>Delete</ListBtn>
+            </ListItem>
           );
         })}
-      </ul>
+      </List>
     </div>
   );
 };
