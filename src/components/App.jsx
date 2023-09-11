@@ -32,6 +32,7 @@ export class App extends Component {
         'updated-contacts',
         JSON.stringify(this.state.contacts)
       );
+      console.log('set item');
     }
   }
 
