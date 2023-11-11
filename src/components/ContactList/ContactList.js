@@ -20,17 +20,15 @@ const ContactList = ({ list, onChangeInput, filter, onDeleteContact }) => {
         />
       </ListLable>
       <List>
-        {list.map(item => {
-          return (
-            <ListItem key={item.id}>
-              <div>
-                <span>{item.name}:</span>
-                <span>{item.number}</span>
-              </div>
-              <ListBtn onClick={() => onDeleteContact(item.id)}>Delete</ListBtn>
-            </ListItem>
-          );
-        })}
+        {list.map(item => (
+          <ListItem key={item.id}>
+            <div>
+              <span>{item.name}:</span>
+              <span>{item.number}</span>
+            </div>
+            <ListBtn onClick={() => onDeleteContact(item.id)}>Delete</ListBtn>
+          </ListItem>
+        ))}
       </List>
     </div>
   );
